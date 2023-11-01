@@ -31,4 +31,21 @@ class CustomerController extends Controller
 
         return back()->with('success','Customer added successfully');
     }
+
+    public function checkEmail(Request $request){
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+        $emailExists = Customer::where('email',$email)->first();
+        $phoneExists = Customer::where('phone',$phone)->first();
+
+        if($emailExists){
+            return response()->json(array("emailExists" => true));
+        }
+        if($phoneExists){
+            return response()->json(array("phoneExist"=> true));
+        }
+        else{
+            return response()->json(array("exists" => false));
+        }
+    }
 }
