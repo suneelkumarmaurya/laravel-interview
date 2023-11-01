@@ -18,3 +18,5 @@ Route::get('/', function () {
     return view('test');
 });
 Route::post('customer/store', [CustomerController::class,'store'])->name('store.customer');
+
+Route::post('/checkemail',[CustomerController::class,'checkEmail'])->name('checkemail');
