@@ -28,6 +28,7 @@ class CustomerController extends Controller
         $Address->Pincode = $request->Pincode;
         $Address->save();
 
+
         return back()->with('success','Customer added successfully');
     }
 }
